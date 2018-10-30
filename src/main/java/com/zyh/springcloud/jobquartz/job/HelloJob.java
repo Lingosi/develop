@@ -18,6 +18,7 @@ public class HelloJob implements BaseJob{
 		System.out.println("我执行了.........***********************");
 		JobDetail jd = context.getJobDetail();
 		String name = jd.getClass().getName();
+		logger.info("加点儿日志吧");
 		Date tmpNow = new Date(context.getJobRunTime());
 		context.getNextFireTime();
 		logger.info("在执行了..........，名称：{}，当前时间：{}， firetime：{}，next：{}", name, sdfTime.format(tmpNow), sdfTime.format(context.getFireTime()), sdfTime.format(context.getNextFireTime()));
