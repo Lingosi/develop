@@ -1,0 +1,30 @@
+#端口  
+server:  
+  port: 8031
+  context-path: /jobquartz1
+
+  
+spring:
+  application:
+    name: jobquartz1
+  
+  
+org:
+  quartz:
+    scheduler:
+      instanceName: DefaultQuartzScheduler
+      rmi:
+        export: false
+        proxy: false
+    wrapJobExecutionInUserTransaction: false
+    threadPool:
+      class: org.quartz.simpl.SimpleThreadPool
+      threadPool:
+        threadCount: 5
+        threadPriority: 5
+        threadsInheritContextClassLoaderOfInitializingThread: true
+        
+        
+logging:
+  path: /learning/log/${spring.application.name}.logs/${spring.application.name}
+  config: classpath:logback-spring.xml
